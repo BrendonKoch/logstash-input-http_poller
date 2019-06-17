@@ -47,7 +47,7 @@ class LogStash::Inputs::HTTP_Poller < LogStash::Inputs::Base
 
   def stop
     Stud.stop!(@interval_thread) if @interval_thread
-    @scheduler.stop if @scheduler
+    @scheduler.stop(:wait) if @scheduler
   end
 
   private
